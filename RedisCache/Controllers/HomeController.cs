@@ -33,7 +33,7 @@ namespace RedisCache.Controllers
             }
             else
             {
-                categoryList = _db.Category.ToList();
+                categoryList = _db.Categories.ToList();
                 DistributedCacheEntryOptions options = new();
                 options.SetAbsoluteExpiration(new TimeSpan(0, 0, 30));
 

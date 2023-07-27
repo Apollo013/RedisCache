@@ -14,6 +14,11 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDistributedRedisCache(options =>
+{
+    options.Configuration = builder.Configuration.GetConnectionString("AzureRedisConnection");
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
